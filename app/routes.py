@@ -21,7 +21,7 @@ def users():
             result.append(user.to_dict())
         return jsonify(result), 200
 
-@app.route('/<int:uid>', methods=['GET', 'POST', 'DELETE'])
+@app.route('/users/<int:uid>', methods=['GET', 'PUT', 'DELETE'])
 def user_function(uid):
     if request.method == 'GET':
         user = models.User.query.get(uid)
@@ -68,7 +68,7 @@ def orders():
             result.append(order.to_dict())
         return jsonify(result), 200
 
-@app.route('/orders/<int:uid>', methods=['GET', 'POST', 'DELETE'])
+@app.route('/orders/<int:uid>', methods=['GET', 'PUT', 'DELETE'])
 def order_function(uid):
     if request.method == 'GET':
         order = models.Order.query.get(uid)
@@ -118,7 +118,7 @@ def offers():
             result.append(offer.to_dict())
         return jsonify(result), 200
 
-@app.route('/offers/<int:uid>', methods=['GET', 'POST', 'DELETE'])
+@app.route('/offers/<int:uid>', methods=['GET', 'PUT', 'DELETE'])
 def offer_function(uid):
     if request.method == 'GET':
         offer = models.Offer.query.get(uid)
